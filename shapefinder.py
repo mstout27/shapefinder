@@ -5,7 +5,7 @@ import argparse
 
 # create argument parser and flags
 parser = argparse.ArgumentParser()
-parser.add_argument("image")
+parser.add_argument("image", help = "image to detect shapes")
 parser.add_argument("-c","--color", help = "specify shape color", default = "0x00ff00")
 parser.add_argument("-s","--shape", help = "choose shape", default = "rectangle")
 parser.add_argument("-o", help = "save to file")
@@ -39,6 +39,22 @@ if args.color:
         red = 0
         green = 0
         blue = 0
+    if args.color == "yellow":
+        red = 255
+        green = 255
+        blue = 0
+    if args.color == "purple":
+        red == 255
+        green == 0
+        blue == 255
+    if args.color == "cyan":
+        red == 0
+        green == 255
+        blue == 255
+    if args.color == "white
+        red == 255
+        green == 255
+        blue == 255
 
 sides = 0
 if args.shape:
@@ -81,23 +97,23 @@ total = 0
 
 # loop over the contours
 for c in cnts:
-        # approximate the contour
-        peri = cv2.arcLength(c, True)
-        approx = cv2.approxPolyDP(c, 0.02 * peri, True)
+    # approximate the contour
+    peri = cv2.arcLength(c, True)
+    approx = cv2.approxPolyDP(c, 0.02 * peri, True)
 
-        # if the approximated contour has four points, then rectangle
-        if len(approx) == 3 and sides == 3:
-            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
-            total +=1
-        elif len(approx) == 4 and sides == 4:
-            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
-            total += 1
-        elif len(approx) == 5 and sides == 5:
-            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
-            total += 1
-        elif len(approx) == 6 and sides == 6:        
-            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
-            total += 1
+    # if the approximated contour has four points, then rectangle
+    if len(approx) == 3 and sides == 3:
+        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        total +=1
+    elif len(approx) == 4 and sides == 4:
+        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        total += 1
+    elif len(approx) == 5 and sides == 5:
+        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        total += 1
+    elif len(approx) == 6 and sides == 6:        
+        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        total += 1
 
 
 
@@ -110,6 +126,6 @@ cv2.imshow("Output", image)
 # if -o flag, save output to file
 if args.o:
     print("Saving to output file: {}".format(args.o))
-    imwrite(args.o,image)  
+    cv2.imwrite(args.o,image)  
 
 cv2.waitKey(0)
