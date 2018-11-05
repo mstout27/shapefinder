@@ -108,16 +108,16 @@ for c in cnts:
 
     # Use contour & user input to determine shape to detect
     if len(approx) == 3 and sides == 3:
-        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
         total +=1
     elif len(approx) == 4 and sides == 4:
-        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
         total += 1
     elif len(approx) == 5 and sides == 5:
-        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
         total += 1
     elif len(approx) == 6 and sides == 6:        
-        cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+        cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
         total += 1
 
 # Output
