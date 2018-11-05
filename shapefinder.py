@@ -51,7 +51,7 @@ if args.color:
         red == 0
         green == 255
         blue == 255
-    if args.color == "white
+    if args.color == "white":
         red == 255
         green == 255
         blue == 255
