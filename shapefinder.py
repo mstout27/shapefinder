@@ -74,7 +74,7 @@ if args.shape:
 # load the image, convert it to grayscale, and blur it
 image = cv2.imread("lee.PPM")
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-gray = cv2.GaussianBlur(gray, (5, 5), 0)
+gray = cv2.GaussianBlur(gray, (4, 4), 0)
 
 #display blurred and grayed image
 cv2.imshow("Gray",gray)
