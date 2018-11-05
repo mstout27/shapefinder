@@ -6,7 +6,7 @@ import argparse
 # create argument parser and flags
 parser = argparse.ArgumentParser()
 parser.add_argument("image", help = "image to detect shapes")
-parser.add_argument("-c","--color", help = "specify shape color", default = "0x00ff00")
+parser.add_argument("-c","--color", help = "specify shape color", default = "0x000000")
 parser.add_argument("-s","--shape", help = "choose shape", default = "rectangle")
 parser.add_argument("-o", help = "save to file")
 args = parser.parse_args()
