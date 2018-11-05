@@ -46,17 +46,17 @@ if args.color:
         green = 255
         blue = 0
     if args.color == "purple":
-        red == 255
-        green == 0
-        blue == 255
+        red = 255
+        green = 0
+        blue = 255
     if args.color == "cyan":
-        red == 0
-        green == 255
-        blue == 255
+        red = 0
+        green = 255
+        blue = 255
     if args.color == "white":
-        red == 255
-        green == 255
-        blue == 255
+        red = 255
+        green = 255
+        blue = 255
 
 # read shape input
 sides = 0
@@ -76,24 +76,14 @@ image = cv2.imread(args.image)
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 gray = cv2.GaussianBlur(gray, (3, 3), 0)
 
-#display blurred and grayed image
-cv2.imshow("Gray",gray)
-cv2.waitKey(0)
-
 # detect edges in image
 edges = cv2.Canny(gray, 10, 75)
 
-#show edges image
-cv2.imshow("Edges", edges)
-cv2.waitKey(0)
 
 # kernal for closing edges
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (4, 4))
 closed = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel)
 
-# show closed image
-cv2.imshow("Closed", closed)
-cv2.waitKey(0)
 
 # retrieve contours from fixed image
 _, cnts, _ = cv2.findContours(edges.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
