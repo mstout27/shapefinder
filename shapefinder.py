@@ -69,6 +69,8 @@ if args.shape:
         sides = 5
     elif args.shape == "hexagon":
         sides = 6 
+    elif args.shape == "circle":
+        so
     print("Shape will be: {}".format(args.shape))
 
 # load the image, convert it to grayscale, and blur it
@@ -109,6 +111,7 @@ for c in cnts:
     elif len(approx) == 6 and sides == 6:        
         cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
         total += 1
+
 
 
 # Output
