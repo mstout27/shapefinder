@@ -88,7 +88,7 @@ cv2.imshow("Edges", edges)
 cv2.waitKey(0)
 
 # kernal for closing edges
-kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
+kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (4, 4))
 closed = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel)
 
 # show closed image
