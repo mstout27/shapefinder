@@ -121,7 +121,7 @@ for c in cnts:
         total += 1
 
 # Output
-print ("Found {0} {}s in image".format(total, args.shape))
+print ("Found {} {}s in image".format(total, args.shape))
 cv2.imshow("Output", image)
 
 # if -o flag, save output to file
