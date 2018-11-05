@@ -69,8 +69,6 @@ if args.shape:
         sides = 5
     elif args.shape == "hexagon":
         sides = 6 
-    elif args.shape == "circle":
-        sides = 10
     print("Shape will be: {}".format(args.shape))
 
 # load the image, convert it to grayscale, and blur it
@@ -121,9 +119,7 @@ for c in cnts:
     elif len(approx) == 6 and sides == 6:        
         cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
         total += 1
-    elif len(approx) >= 10 and sides == 10:        
-        cv2.drawContours(image, [approx], -1, (blue, green, red), 4)
-        total += 1
+
 
 # Output
 print ("Found {} {}s in image".format(total, args.shape))
