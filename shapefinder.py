@@ -7,7 +7,7 @@ import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("image")
 parser.add_argument("-c","--color", help = "specify shape color", default = "0x00ff00")
-parser.add_argument("-s","--shape", help = "choose shape")
+parser.add_argument("-s","--shape", help = "choose shape", default = "rectangle")
 parser.add_argument("-o", help = "save to file")
 args = parser.parse_args()
 
@@ -86,14 +86,19 @@ for c in cnts:
         approx = cv2.approxPolyDP(c, 0.02 * peri, True)
 
         # if the approximated contour has four points, then rectangle
-        if len(approx) == 4:
-            if sides == 4:
-                cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
-                total += 1
-        elif len(approx) == 3:
-            if sides == 3:
-                cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
-                total +=1
+        if len(approx) == 3 and sides == 3:
+            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+            total +=1
+        elif len(approx) == 4 and sides == 4:
+            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+            total += 1
+        elif len(approx) == 5 and sides == 5:
+            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+            total += 1
+        elif len(approx) == 6 and sides == 6:        
+            cv2.drawContours(image, [approx], -1, (red, green, blue), 4)
+            total += 1
+
 
 
        
