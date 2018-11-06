@@ -72,6 +72,15 @@ int main( int argc, char** argv ){
   else if(colorIn == "green"){
     color = Scalar(0, 255, 0);
   }
+  else if(colorIn == "magenta"){
+    color = Scalar(255, 0, 255);
+  }
+  else if(colorIn == "yellow"){
+    color = Scalar(0, 255, 255);
+  }
+  else if(colorIn == "cyan"){
+    color = Scalar(255, 255, 0);
+  }
   else{
     color = Scalar(255, 255, 255);
     cout << "Color flag not entered correctly. Setting to default of white." << endl;
