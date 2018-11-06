@@ -38,7 +38,6 @@ int main( int argc, char** argv ){
     if (j+1 != argc){
       if (String(argv[j]) == "-c") {
         colorIn = argv[j+1];
-        cout << colorIn << endl;
       }
       else if (String(argv[j]) == "-s") {
         shape = argv[j+1];
@@ -50,11 +49,11 @@ int main( int argc, char** argv ){
   }
 
   // Check color input and set up choices
-  Scalar color = Scalar(255,255,255);
-  if(colorIn == "white" || "0x111111"){
+  Scalar color = Scalar(0, 0, 0);
+  if(colorIn == "white"){
     color = Scalar(255, 255, 255);
   }
-  else if(colorIn == "black" || "0x000000"){
+  else if(colorIn == "black"){
     color = Scalar(0, 0, 0);
   }
   else if(colorIn == "red"){
@@ -115,6 +114,7 @@ int main( int argc, char** argv ){
 
   findContours(closed, contours, hierarchy, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
 
+  // Total shapes found
   int total = 0;
 
   // Loop over contours
@@ -145,9 +145,9 @@ int main( int argc, char** argv ){
   }
 
   cout << "Found " << total << " " << shape << endl;
-  namedWindow( "Output", WINDOW_AUTOSIZE); // Create a window for display.
-  imshow( "Output", image);                // Show our image inside it.
+  namedWindow("Output", WINDOW_AUTOSIZE); // Create a window for display.
+  imshow("Output", image);                // Show our image inside it.
   waitKey(0); // Wait for a keystroke in the window
-  imwrite(output);
+  imwrite(output, image);
   return 0;
 }
