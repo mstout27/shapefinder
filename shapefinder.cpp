@@ -11,7 +11,7 @@ using namespace std;
 int main( int argc, char** argv ){
 
   //Check if too many command line args
-  if(argc > 7){
+  if(argc > 8){
     cout << "Too many arguments have been entered. Please try again." << endl;
     cout << "Arguments should be in form: input.PPM -c color -s shape -o output" << endl;
     cout << "Flags default to color = white, shape = rectangle, output = output.PPM" << endl;
@@ -49,7 +49,7 @@ int main( int argc, char** argv ){
   }
 
   // Check color input and set up choices
-  Scalar color = Scalar(0, 0, 0);
+  Scalar color;
   if(colorIn == "white"){
     color = Scalar(255, 255, 255);
   }
@@ -57,12 +57,17 @@ int main( int argc, char** argv ){
     color = Scalar(0, 0, 0);
   }
   else if(colorIn == "red"){
-    color = Scalar(255, 0, 0);
+    color = Scalar(0, 0, 255);
     cout << "red" << endl;
   }
   else if(colorIn == "blue"){
+    color = Scalar(255, 0, 0);
+  }
+  else if(colorIn == "green"){
+    color = Scalar(0, 255, 0);
   }
   else{
+    color = Scalar(255, 255, 255);
     cout << "Color flag not entered correctly. Setting to default of white." << endl;
   }
 
